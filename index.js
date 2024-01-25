@@ -7,6 +7,8 @@ buttonExpensesNode.addEventListener('click', function () {
 
     const expense = inputExpensesNode.value;
 
-    console.log (expense);
+    expenses.push (expense);
+
+    console.log (expenses);
 
 });
