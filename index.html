@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <title>Expenses-app</title>
     <link rel="stylesheet" href="index.css">
 
@@ -10,28 +13,46 @@
 
 <body>
 
+    <div class="container">
 
-    <h1> Учет расходов </h1>
-   
-    <input 
-        class = "js-expense-input expense-input" 
-        type="number">
+        <h1> Учет расходов </h1>
+
+        <div class = expenses-wrapper>
     
-        <button class = "js-expense-btn expense-btn"> Добавить </button>
+            <div class = expenses-input-inner>
 
-        <p> Сумма: <span class = "js-sum-total"> </span> руб. </p>
+                <input
 
-        <p> Лимит: <span class = "js-limit"> </span> руб. </p>
+                class = "js-expense-input expense-input" 
+                type="number">
+            
+                <button class = "js-expense-btn expense-btn"> Добавить </button>
 
-        <p> Статус: <span class = "js-limit-status limit-status">  </span> </p>
+                <p> Сумма: <span class = "js-sum-total"> </span> руб. </p>
 
-        <h2> История трат </h2>
+                <p> Лимит: <span class = "js-limit"> </span> руб. </p>
 
-        <div 
-        class = "js-expenses-history expenses-history">
+                <p> Статус: <span class = "js-limit-status limit-status">  </span> </p>
+                
+                <button class = "js-reset-btn reset-btn"> Сбросить расходы </button>
+
+            </div>
+
+            <div class ="expenses-output-inner">
+
+                <h2> История трат: </h2>
+
+                    <div 
+                    class = "js-expenses-history expenses-history">
+                    </div>
+
+            </div>
+
         </div>
 
-        <button class = "js-reset-btn reset-btn"> Сбросить расходы </button>
+          
+
+    </div>
 
     <script src ="index.js"> </script>
     
