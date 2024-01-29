@@ -10,6 +10,7 @@ const espenseHistoryNode = document.querySelector ('.js-expenses-history');
 const sumExpensesTotalNode = document.querySelector ('.js-sum-total');
 const expenseLimitNode = document.querySelector ('.js-limit');
 const expenseLimitStatusNode = document.querySelector ('.js-limit-status');
+const resetButtonNode = document.querySelector ('.js-reset-btn');
 
 const expenses = [];
 
@@ -23,16 +24,23 @@ buttonExpensesNode.addEventListener('click', function () {
 
         return;
     }
-    
+
     trackExpenses (expense);
     render (expenses);
+});
+
+resetButtonNode.addEventListener('click', function () {
+
+    expenses.length = 0;
+    espenseHistoryNode.innerText = '';
+    sumExpensesTotalNode.innerText = 0;
 });
 
 function init (expenses) {
 
     expenseLimitNode.innerText = LIMIT;
     expenseLimitStatusNode.innerText = STATUSINLIMIT;
-    
+    sumExpensesTotalNode.innerText = 0;
 };
 
 function getExpensefromuser () {
