@@ -14,6 +14,7 @@
 	border: 1px solid #cecece;
 	background: #F6F6f6;
 	border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .expense-btn {
@@ -65,6 +66,5 @@
 
 .expenses-history {
 
-    background: #c3d1ff;
     padding: 30px;
 }

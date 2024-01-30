@@ -3,6 +3,7 @@ const CURRENCY = ' руб.';
 const STATUSINLIMIT = 'все хорошо';
 const STATUSOUTLIMIT = 'все плохо';
 const STATUSOUTLIMIT_CLASSNAME = 'limit-status_red';
+const STATUSLIMIT_CLASSNAME = 'limit-status';
 
 const inputExpensesNode = document.querySelector ('.js-expense-input');
 const buttonExpensesNode = document.querySelector ('.js-expense-btn');
@@ -12,16 +13,27 @@ const expenseLimitNode = document.querySelector ('.js-limit');
 const expenseLimitStatusNode = document.querySelector ('.js-limit-status');
 const resetButtonNode = document.querySelector ('.js-reset-btn');
 
-const expenses = [];
+let expenses = [];
 
 init (expenses);
+
+function init  (expenses) {
+
+    expenseLimitNode.innerText = LIMIT;
+    expenseLimitStatusNode.innerText = STATUSINLIMIT;
+    sumExpensesTotalNode.innerText = 0;
+};
 
 buttonExpensesNode.addEventListener('click', function () {
 
     const expense = getExpensefromuser();
 
     if (!expense) {
+        return;
+    }
 
+    if (expense < 0) {
+        alert("Введите положительное число.");
         return;
     }
 
@@ -32,16 +44,9 @@ buttonExpensesNode.addEventListener('click', function () {
 resetButtonNode.addEventListener('click', function () {
 
     expenses.length = 0;
-    espenseHistoryNode.innerText = '';
-    sumExpensesTotalNode.innerText = 0;
+    init ();
+    espenseHistoryNode.innerHTML = '';
 });
-
-function init (expenses) {
-
-    expenseLimitNode.innerText = LIMIT;
-    expenseLimitStatusNode.innerText = STATUSINLIMIT;
-    sumExpensesTotalNode.innerText = 0;
-};
 
 function getExpensefromuser () {
 
@@ -87,7 +92,7 @@ function renderStatusExpenses (sumTotal) {
         expenseLimitStatusNode.innerText = STATUSINLIMIT;
      } else {
 
-        expenseLimitStatusNode.innerText = STATUSOUTLIMIT;
+        expenseLimitStatusNode.innerText = `${STATUSOUTLIMIT} (${LIMIT - sumTotal} руб.)`;
         expenseLimitStatusNode.classList.add (STATUSOUTLIMIT_CLASSNAME);
      }
 };
@@ -110,3 +115,4 @@ function clearInput () {
 
     inputExpensesNode.value = '';
 };
+
