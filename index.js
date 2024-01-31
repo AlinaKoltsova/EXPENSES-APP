@@ -5,23 +5,23 @@ const STATUSOUTLIMIT = 'все плохо';
 const STATUSOUTLIMIT_CLASSNAME = 'limit-status_red';
 const STATUSLIMIT_CLASSNAME = 'limit-status';
 
-const inputExpensesNode = document.querySelector ('.js-expense-input');
-const buttonExpensesNode = document.querySelector ('.js-expense-btn');
-const espenseHistoryNode = document.querySelector ('.js-expenses-history');
-const sumExpensesTotalNode = document.querySelector ('.js-sum-total');
-const expenseLimitNode = document.querySelector ('.js-limit');
-const expenseLimitStatusNode = document.querySelector ('.js-limit-status');
-const resetButtonNode = document.querySelector ('.js-reset-btn');
+const inputExpensesNode = document.getElementById ('js-expenseInput');
+const buttonExpensesNode = document.getElementById ('js-addExpenseBtn');
+const espenseHistoryNode = document.getElementById ('js-expensesHistory');
+const sumExpensesTotalNode = document.getElementById ('js-sumValue');
+const expenseLimitNode = document.getElementById ('js-limitValue');
+const expenseLimitStatusNode = document.getElementById ('js-statusValue');
+const resetButtonNode = document.getElementById ('js-resetBtn');
 
 let expenses = [];
-
 init (expenses);
 
-function init  (expenses) {
+function init (expenses) {
 
-    expenseLimitNode.innerText = LIMIT;
+    expenseLimitNode.innerText = `${LIMIT}${CURRENCY}`;
     expenseLimitStatusNode.innerText = STATUSINLIMIT;
-    sumExpensesTotalNode.innerText = 0;
+    sumExpensesTotalNode.innerText = `${0}${CURRENCY}`;
+    expenseLimitStatusNode.classList.add (STATUSLIMIT_CLASSNAME);
 };
 
 buttonExpensesNode.addEventListener('click', function () {
@@ -99,7 +99,7 @@ function renderStatusExpenses (sumTotal) {
 
 function renderSumTotal (sumTotal) {
 
-    sumExpensesTotalNode.innerText = sumTotal;
+    sumExpensesTotalNode.innerText = `${sumTotal}${CURRENCY}`;
 };
 
 function render (expenses) {

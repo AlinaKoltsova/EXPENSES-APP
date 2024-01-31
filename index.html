@@ -13,48 +13,52 @@
 
 <body>
 
-    <div class="container">
-
         <h1> Учет расходов </h1>
 
-        <div class = expenses-wrapper>
-    
-            <div class = expenses-input-inner>
+        <div class = "expensesWrapper">
 
-                <input
+                <div class = "expensesInput__inner">
 
-                class = "js-expense-input expense-input" 
-                type="number"
-                placeholder="Введите трату в рублях"
-                min="1">
+                    <input
+                    class = "expenseInput__input" 
+                    type="number"
+                    min="1"
+                    placeholder="Введите трату"
+                    id = "js-expenseInput"
+                    > 
+
+                    <button class = "addExpenseBtn" id = "js-addExpenseBtn"> Добавить </button> 
+
+                    <div class="spendData">
+                        <div class = "spendData__limit">
+                            <span class="label"> Лимит: </span>
+                            <span id = "js-limitValue"> </span>
+                        </div>
             
-                <button class = "js-expense-btn expense-btn"> Добавить </button>
+                        <div class = "spendData__sum">
+                            <span class="label"> Сумма: </span>
+                            <span id = "js-sumValue"> </span>
+                        </div>
+            
+                        <div class = "spendData__status">
+                            <span class="label"> Статус: </span>
+                            <span id = "js-statusValue"> </span>
+                        </div>
+                    </div> 
 
-                <p> Сумма: <span class = "js-sum-total"> </span> руб. </p>
+                    <button class = "resetBtn" id = "js-resetBtn"> Сбросить расходы </button>  
+                    
+                </div> 
+                        
+                <div class="expensesHistory__inner">
 
-                <p> Лимит: <span class = "js-limit"> </span> руб. </p>
+                    <div class="expensesHistory__title"> История трат: </div>
 
-                <p> Статус: <span class = "js-limit-status limit-status">  </span> </p>
-                
-                <button class = "js-reset-btn reset-btn"> Сбросить расходы </button>
+                    <div  id = "js-expensesHistory" > </div>
 
-            </div>
+                </div> 
 
-            <div class ="expenses-output-inner">
-
-                <h2> История трат: </h2>
-
-                    <div 
-                    class = "js-expenses-history expenses-history">
-                    </div>
-
-            </div>
-
-        </div>
-
-          
-
-    </div>
+         </div> 
 
     <script src ="index.js"> </script>
     
