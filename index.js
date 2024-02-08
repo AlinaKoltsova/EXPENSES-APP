@@ -91,7 +91,7 @@ function render () {
 function getExpenseFromUser () {
     if (inputNode.value<=0)
     {
-        alert ("Введи корректное значение в трату");
+        alert ("Введи корректное значение в траты");
         return;
     }
     return parseInt(inputNode.value);
