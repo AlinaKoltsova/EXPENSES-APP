@@ -12,44 +12,62 @@
 </head>
 
 <body>
+    
+        <h1 class="mainTitle"> Учет расходов </h1>
 
-        <h1> Учет расходов </h1>
+        <div class = "expensesInputWrapper">
 
-        <div class = "expensesWrapper">
-
-                <div class = "expensesInput__inner">
+               <div class = "expensesInput__inner rub">
 
                     <input
                     class = "expenseInput__input" 
                     type="number"
-                    min="1"
+                    min="0"
                     placeholder="Введите трату"
                     id = "js-expenseInput"
                     > 
+                
+                </div>
+                
+                <button class = "addExpenseBtn" id = "js-addExpenseBtn"> Добавить </button>
 
-                    <button class = "addExpenseBtn" id = "js-addExpenseBtn"> Добавить </button> 
+        </div>
 
-                    <div class="spendData">
-                        <div class = "spendData__limit">
-                            <span class="label"> Лимит: </span>
-                            <span id = "js-limitValue"> </span>
-                        </div>
-            
-                        <div class = "spendData__sum">
-                            <span class="label"> Сумма: </span>
-                            <span id = "js-sumValue"> </span>
-                        </div>
-            
-                        <div class = "spendData__status">
-                            <span class="label"> Статус: </span>
-                            <span id = "js-statusValue"> </span>
-                        </div>
-                    </div> 
+                <select id = "js-categorySelect" class = "categorySelect">
+
+                <option hidden disabled selected value="Категория"> Категории </option>
+                <option value="Продукты"> Продукты </option>
+                <option value="Кафе"> Кафе и рестораны </option>
+                <option value="Одежда"> Одежда </option>
+                <option value="Налоги"> Налоги </option>
+
+                </select> 
+                    
+                <div class="spendData">
+                    <div class = "spendData__limit">
+                        <span class="label"> <b>Лимит:</b></span>
+                        <span id = "js-limitValue" class="rub"> 10000 </span>
+                        <img id = "js-changeLimitBtn"
+                        class="stats__changeLimitBtn" 
+                        src="image 1.png"
+                        alt="иконка смены лимита">
+                </div>
+        
+                    <div class = "spendData__sum">
+                        <span class="label"><b>Сумма:</b> </span>
+                        <span id = "js-sumValue" class="rub" >0</span>
+                    </div>
+        
+                    <div class = "spendData__status">
+                        <span class="label"> <b>Статус:</b></span>
+                        <span id = "js-statusValue" > все хорошо </span>
+                    </div>
+                </div> 
 
                     <button class = "resetBtn" id = "js-resetBtn"> Сбросить расходы </button>  
                     
                 </div> 
-                        
+                
                 <div class="expensesHistory__inner">
 
                     <div class="expensesHistory__title"> История трат: </div>
@@ -58,9 +76,10 @@
 
                 </div> 
 
-         </div> 
+         </div>
 
     <script src ="index.js"> </script>
     
 </body>
 </html>
+
